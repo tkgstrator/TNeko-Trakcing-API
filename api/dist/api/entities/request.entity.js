@@ -9,16 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RequestEntity = void 0;
+exports.TrackingRequest = void 0;
 const class_validator_1 = require("class-validator");
-class RequestEntity {
+const swagger_1 = require("@nestjs/swagger");
+class TrackingRequest {
 }
 __decorate([
     (0, class_validator_1.ArrayNotEmpty)(),
     (0, class_validator_1.ArrayMaxSize)(10),
     (0, class_validator_1.IsArray)(),
     (0, class_validator_1.IsNumber)({}, { each: true }),
+    (0, swagger_1.ApiProperty)({ type: [Number] }),
     __metadata("design:type", Array)
-], RequestEntity.prototype, "tracking_id", void 0);
-exports.RequestEntity = RequestEntity;
+], TrackingRequest.prototype, "tracking_id", void 0);
+exports.TrackingRequest = TrackingRequest;
 //# sourceMappingURL=request.entity.js.map

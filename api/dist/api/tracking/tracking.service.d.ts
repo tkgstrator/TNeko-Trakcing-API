@@ -1,6 +1,6 @@
-import { RequestEntity } from '../entities/request.entity';
-import { ResponseEntity } from '../entities/resposne.entity';
+import { TrackingRequest } from "../entities/request.entity";
+import { TrackingResponse } from "../entities/resposne.entity";
 export declare class TrackingService {
-    create(request: RequestEntity): Promise<ResponseEntity>;
+    create(request: TrackingRequest): Promise<TrackingResponse>;
     methodNotAllowed(): void;
 }

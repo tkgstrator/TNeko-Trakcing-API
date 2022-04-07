@@ -12,16 +12,16 @@ const axios_1 = require("axios");
 const resposne_entity_1 = require("../entities/resposne.entity");
 let TrackingService = class TrackingService {
     async create(request) {
-        const url = 'https://toi.kuronekoyamato.co.jp/cgi-bin/tneko';
+        const url = "https://toi.kuronekoyamato.co.jp/cgi-bin/tneko";
         const parameters = new URLSearchParams();
         request.tracking_id.forEach((tracking_id, index) => {
-            parameters.append(`number${String(index + 1).padStart(2, '0')}`, request.tracking_id[index].toString());
+            parameters.append(`number${String(index + 1).padStart(2, "0")}`, request.tracking_id[index].toString());
         });
         const response = await axios_1.default.post(url, parameters);
-        return new resposne_entity_1.ResponseEntity(response.data);
+        return new resposne_entity_1.TrackingResponse(response.data);
     }
     methodNotAllowed() {
-        throw new common_1.HttpException('Method Not Allowed', common_1.HttpStatus.METHOD_NOT_ALLOWED);
+        throw new common_1.HttpException("Method Not Allowed", common_1.HttpStatus.METHOD_NOT_ALLOWED);
     }
 };
 TrackingService = __decorate([
